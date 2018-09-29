@@ -12,16 +12,17 @@ import java.util.concurrent.TimeUnit
 
 object PlayerServiceFactory {
 
-    fun makePlayerService(isDebug: Boolean): Retrofit =
+    fun makePlayerService(isDebug: Boolean): PlayerService =
             makePlayerService(makeGson(), makeOkHttpClient(makeLoggingInterceptor(isDebug)))
 
-    private fun makePlayerService(gson: Gson, okHttpClient: OkHttpClient): Retrofit =
+    private fun makePlayerService(gson: Gson, okHttpClient: OkHttpClient): PlayerService =
             Retrofit.Builder()
                     .client(okHttpClient)
                     .baseUrl("https://api.opendota.com/api/")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
+                    .create(PlayerService::class.java)
 
 
     private fun makeOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
