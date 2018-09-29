@@ -2,6 +2,7 @@
     package="com.pepela.opendota">
 
     <application
+        android:name=".OpenDotaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
