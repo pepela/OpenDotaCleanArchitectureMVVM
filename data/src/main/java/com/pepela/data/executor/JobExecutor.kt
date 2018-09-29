@@ -43,7 +43,6 @@ class JobExecutor : ThreadExecutor {
         override fun newThread(runnable: Runnable?) =
                 Thread(runnable, "$THREAD_NAME+$threadCounter")
 
-
     }
 
 }
