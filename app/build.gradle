@@ -56,16 +56,18 @@ dependencies {
     implementation mobileUiDependencies.androidAnnotations
     implementation mobileUiDependencies.appCompatV7
     implementation mobileUiDependencies.supportRecyclerView
+    implementation mobileUiDependencies.constraintLayout
     implementation mobileUiDependencies.supportDesign
     implementation mobileUiDependencies.timber
     implementation mobileUiDependencies.rxAndroid
     implementation mobileUiDependencies.glide
     implementation mobileUiDependencies.koin
     implementation mobileUiDependencies.koinArch
-    implementation "org.koin:koin-android-scope:1.0.0-RC-1"
+    implementation mobileUiDependencies.koin
+    implementation mobileUiDependencies.ankoCommons
 
     implementation presentationDependencies.archExtensions
-    implementation "android.arch.persistence.room:rxjava2:1.1.1"
+    implementation mobileUiDependencies.roomRxJava
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
     androidTestImplementation "android.arch.core:core-testing:1.1.1"

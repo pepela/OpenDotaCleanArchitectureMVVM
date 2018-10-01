@@ -17,6 +17,6 @@ enum class RankModel {
     ANCIENT,
     @SerializedName("70")
     DIVINE,
-    @SerializedName("100")
+    @SerializedName("80")
     IMMORTAL
 }

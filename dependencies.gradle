@@ -29,6 +29,7 @@ ext {
     koinVersion = '1.0.0-RC-1'
     glassfishAnnotationVersion = '10.0-b28'
     constraintLayoutVersion = '1.1.2'
+    ankoVersion = '0.10.6'
 
     //Testing
     robolectricVersion = '3.4.2'
@@ -68,9 +69,9 @@ ext {
             retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofitAdapter:    "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
             archRuntime:        "android.arch.lifecycle:runtime:${roomVersion}",
-            archViewModel:     "android.arch.lifecycle:viewmodel:${roomVersion}",
+            archViewModel:      "android.arch.lifecycle:viewmodel:${roomVersion}",
             archExtensions:     "android.arch.lifecycle:extensions:${roomVersion}",
-            archCompiler:       "android.arch.lifecycle:compiler:${roomVersion}",
+            archCompiler:       "android.arch.lifecycle:compiler:${roomVersion}"
     ]
 
     presentationTestDependencies = [
@@ -160,10 +161,11 @@ ext {
             constraintLayout:   "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             supportDesign:      "com.android.support:design:${supportLibraryVersion}",
             timber:             "com.jakewharton.timber:timber:${timberVersion}",
-            glassfishAnnotation: "org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
+            glassfishAnnotation:"org.glassfish:javax.annotation:${glassfishAnnotationVersion}",
             roomRuntime:        "android.arch.persistence.room:runtime:${roomVersion}",
             roomCompiler:       "android.arch.persistence.room:compiler:${roomVersion}",
             roomRxJava:         "android.arch.persistence.room:rxjava2:${roomVersion}",
+            ankoCommons:        "org.jetbrains.anko:anko-commons:${ankoVersion}"
     ]
 
     mobileUiTestDependencies = [

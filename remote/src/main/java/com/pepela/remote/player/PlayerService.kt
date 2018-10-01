@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface PlayerService {
 
-    @GET("/players/{account_id}")
+    @GET("/api/players/{account_id}")
     fun getPlayer(@Path("account_id") id: Long): Flowable<PlayerModel>
 
 }

@@ -7,14 +7,14 @@ import io.reactivex.Flowable
 import io.reactivex.Single
 
 class PlayerCacheImpl : PlayerDataStore {
-    
+
     override fun getPlayer(id: Long): Flowable<Player> {
         TODO("not implemented")
     }
 
-    override fun savePlayer(player: Player): Completable {
-        TODO("not implemented")
-    }
+    override fun savePlayer(player: Player): Completable =
+            Completable.complete() //TODO change after implementing db
+
 
     override fun clearPlayers(): Completable {
         TODO("not implemented")
