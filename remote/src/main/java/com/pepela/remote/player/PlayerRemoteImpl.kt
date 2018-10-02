@@ -2,7 +2,7 @@ package com.pepela.remote.player
 
 import com.pepela.data.player.model.Player
 import com.pepela.data.source.player.PlayerDataStore
-import com.pepela.remote.player.mapper.PlayerMapper
+import com.pepela.remote.player.mapper.player.PlayerMapper
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single

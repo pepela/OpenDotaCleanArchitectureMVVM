@@ -3,10 +3,10 @@ package com.pepela.remote.player
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
-import com.pepela.remote.player.mapper.PlayerMapper
-import com.pepela.remote.player.mapper.ProfileMapper
-import com.pepela.remote.player.mapper.RankMapper
-import com.pepela.remote.player.test.factory.PlayerModelFactory.Factory.makePlayerModel
+import com.pepela.remote.player.mapper.player.PlayerMapper
+import com.pepela.remote.player.mapper.player.ProfileMapper
+import com.pepela.remote.player.mapper.player.RankMapper
+import com.pepela.remote.test.factory.player.PlayerModelFactory.Factory.makePlayerModel
 import io.reactivex.Flowable
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,6 +31,7 @@ class PlayerRemoteImplTest {
     fun getPlayer_completes() {
         whenever(playerService.getPlayer(any())).thenReturn(Flowable.just(makePlayerModel()))
         val testObserver = playerRemoteImpl.getPlayer(PLAYER_ID).test()
+
         testObserver.assertComplete()
     }
 
@@ -39,6 +40,7 @@ class PlayerRemoteImplTest {
         val playerModel = makePlayerModel()
         whenever(playerService.getPlayer(any())).thenReturn(Flowable.just(playerModel))
         val testObserver = playerRemoteImpl.getPlayer(PLAYER_ID).test()
+
         testObserver.assertValue(playerMapper.from(playerModel))
     }
 

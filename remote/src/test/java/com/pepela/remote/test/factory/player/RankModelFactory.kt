@@ -1,6 +1,6 @@
-package com.pepela.remote.player.test.factory
+package com.pepela.remote.test.factory.player
 
-import com.pepela.remote.player.model.RankModel
+import com.pepela.remote.player.model.player.RankModel
 
 class RankModelFactory {
 

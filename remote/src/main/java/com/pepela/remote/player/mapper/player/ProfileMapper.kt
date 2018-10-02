@@ -1,8 +1,8 @@
-package com.pepela.remote.player.mapper
+package com.pepela.remote.player.mapper.player
 
 import com.pepela.data.player.model.Profile
 import com.pepela.remote.EntityMapper
-import com.pepela.remote.player.model.ProfileModel
+import com.pepela.remote.player.model.player.ProfileModel
 
 open class ProfileMapper : EntityMapper<ProfileModel, Profile> {
 

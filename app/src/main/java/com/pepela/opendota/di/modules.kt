@@ -8,7 +8,6 @@ import com.pepela.data.executor.PostExecutionThread
 import com.pepela.data.executor.ThreadExecutor
 import com.pepela.data.player.interactor.GetPlayerUseCase
 import com.pepela.data.repository.PlayerRepository
-import com.pepela.data.source.match.MatchDataStore
 import com.pepela.data.source.player.PlayerDataStore
 import com.pepela.data.source.player.PlayerDataStoreFactory
 import com.pepela.opendota.BuildConfig
@@ -16,9 +15,9 @@ import com.pepela.opendota.UiThread
 import com.pepela.opendota.player.PlayerViewModel
 import com.pepela.remote.player.PlayerRemoteImpl
 import com.pepela.remote.player.PlayerServiceFactory
-import com.pepela.remote.player.mapper.PlayerMapper
-import com.pepela.remote.player.mapper.ProfileMapper
-import com.pepela.remote.player.mapper.RankMapper
+import com.pepela.remote.player.mapper.player.PlayerMapper
+import com.pepela.remote.player.mapper.player.ProfileMapper
+import com.pepela.remote.player.mapper.player.RankMapper
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module

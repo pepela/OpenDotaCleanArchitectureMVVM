@@ -1,4 +1,4 @@
-package com.pepela.remote.player.model
+package com.pepela.remote.player.model.player
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,6 +1,7 @@
 package com.pepela.remote.player.mapper
 
-import com.pepela.remote.player.test.factory.RankModelFactory.Factory.randomRankModel
+import com.pepela.remote.player.mapper.player.RankMapper
+import com.pepela.remote.test.factory.player.RankModelFactory.Factory.randomRankModel
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4

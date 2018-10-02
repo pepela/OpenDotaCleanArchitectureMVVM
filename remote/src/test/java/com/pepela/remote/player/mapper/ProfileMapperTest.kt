@@ -1,6 +1,7 @@
 package com.pepela.remote.player.mapper
 
-import com.pepela.remote.player.test.factory.ProfileModelFactory.Factory.makeProfileModel
+import com.pepela.remote.player.mapper.player.ProfileMapper
+import com.pepela.remote.test.factory.player.ProfileModelFactory.Factory.makeProfileModel
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4

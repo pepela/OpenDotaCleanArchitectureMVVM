@@ -1,8 +1,8 @@
-package com.pepela.remote.player.mapper
+package com.pepela.remote.player.mapper.player
 
 import com.pepela.data.player.model.Rank
 import com.pepela.remote.EntityMapper
-import com.pepela.remote.player.model.RankModel
+import com.pepela.remote.player.model.player.RankModel
 
 open class RankMapper : EntityMapper<RankModel, Rank> {
 
