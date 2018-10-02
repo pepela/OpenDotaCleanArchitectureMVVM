@@ -1,4 +1,4 @@
-package com.pepela.data.player.interceptor
+package com.pepela.data.player.interactor
 
 import com.pepela.data.executor.PostExecutionThread
 import com.pepela.data.executor.ThreadExecutor

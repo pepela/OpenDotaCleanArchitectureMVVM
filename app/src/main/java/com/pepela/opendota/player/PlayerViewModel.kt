@@ -3,7 +3,7 @@ package com.pepela.opendota.player
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.pepela.data.player.interceptor.GetPlayerUseCase
+import com.pepela.data.player.interactor.GetPlayerUseCase
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
 

@@ -1,4 +1,4 @@
-package com.pepela.data.source
+package com.pepela.data.source.player
 
 import com.pepela.data.player.model.Player
 import io.reactivex.Completable

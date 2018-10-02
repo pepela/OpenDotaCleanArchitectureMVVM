@@ -1,7 +1,7 @@
 package com.pepela.cache.player
 
 import com.pepela.data.player.model.Player
-import com.pepela.data.source.PlayerDataStore
+import com.pepela.data.source.player.PlayerDataStore
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single

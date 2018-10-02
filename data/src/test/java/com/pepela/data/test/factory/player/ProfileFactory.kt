@@ -1,4 +1,4 @@
-package com.pepela.data.test.factory
+package com.pepela.data.test.factory.player
 
 import com.pepela.data.player.model.Profile
 import com.pepela.data.test.factory.DataFactory.Factory.randomLong

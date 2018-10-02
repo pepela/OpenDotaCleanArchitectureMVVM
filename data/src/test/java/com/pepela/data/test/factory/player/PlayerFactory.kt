@@ -1,9 +1,9 @@
-package com.pepela.data.test.factory
+package com.pepela.data.test.factory.player
 
 import com.pepela.data.player.model.Player
 import com.pepela.data.test.factory.DataFactory.Factory.randomLong
-import com.pepela.data.test.factory.ProfileFactory.Factory.makeProfile
-import com.pepela.data.test.factory.RankFactory.Companion.randomRank
+import com.pepela.data.test.factory.player.ProfileFactory.Factory.makeProfile
+import com.pepela.data.test.factory.player.RankFactory.Companion.randomRank
 
 class PlayerFactory {
 

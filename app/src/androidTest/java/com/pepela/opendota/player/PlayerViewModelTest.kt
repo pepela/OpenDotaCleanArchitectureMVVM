@@ -4,7 +4,7 @@ import android.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
-import com.pepela.data.player.interceptor.GetPlayerUseCase
+import com.pepela.data.player.interactor.GetPlayerUseCase
 import com.pepela.opendota.test.factory.DataFactory
 import com.pepela.opendota.test.factory.PlayerFactory
 import io.reactivex.Flowable

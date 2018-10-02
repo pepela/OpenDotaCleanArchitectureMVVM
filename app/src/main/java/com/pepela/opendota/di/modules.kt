@@ -6,10 +6,11 @@ import com.pepela.data.PlayerDataRepository
 import com.pepela.data.executor.JobExecutor
 import com.pepela.data.executor.PostExecutionThread
 import com.pepela.data.executor.ThreadExecutor
-import com.pepela.data.player.interceptor.GetPlayerUseCase
+import com.pepela.data.player.interactor.GetPlayerUseCase
 import com.pepela.data.repository.PlayerRepository
-import com.pepela.data.source.PlayerDataStore
-import com.pepela.data.source.PlayerDataStoreFactory
+import com.pepela.data.source.match.MatchDataStore
+import com.pepela.data.source.player.PlayerDataStore
+import com.pepela.data.source.player.PlayerDataStoreFactory
 import com.pepela.opendota.BuildConfig
 import com.pepela.opendota.UiThread
 import com.pepela.opendota.player.PlayerViewModel

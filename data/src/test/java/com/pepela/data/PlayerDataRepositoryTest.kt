@@ -1,9 +1,9 @@
 package com.pepela.data
 
 import com.nhaarman.mockito_kotlin.*
-import com.pepela.data.source.PlayerDataStore
-import com.pepela.data.source.PlayerDataStoreFactory
-import com.pepela.data.test.factory.PlayerFactory.Factory.makePlayer
+import com.pepela.data.source.player.PlayerDataStore
+import com.pepela.data.source.player.PlayerDataStoreFactory
+import com.pepela.data.test.factory.player.PlayerFactory.Factory.makePlayer
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single

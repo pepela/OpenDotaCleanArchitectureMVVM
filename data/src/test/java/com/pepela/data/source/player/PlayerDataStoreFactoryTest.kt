@@ -1,6 +1,8 @@
-package com.pepela.data.source
+package com.pepela.data.source.player
 
 import com.nhaarman.mockito_kotlin.mock
+import com.pepela.data.source.player.PlayerDataStore
+import com.pepela.data.source.player.PlayerDataStoreFactory
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
