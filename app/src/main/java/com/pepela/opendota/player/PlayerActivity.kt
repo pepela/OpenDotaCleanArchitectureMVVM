@@ -3,6 +3,7 @@ package com.pepela.opendota.player
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
@@ -10,8 +11,10 @@ import com.bumptech.glide.Glide
 import com.pepela.data.match.model.Match
 import com.pepela.data.player.model.Player
 import com.pepela.opendota.R
+import com.pepela.opendota.widget.empty.EmptyListener
 import com.pepela.opendota.widget.error.ErrorListener
 import kotlinx.android.synthetic.main.activity_player.*
+import org.koin.android.ext.android.inject
 import org.koin.android.scope.ext.android.bindScope
 import org.koin.android.scope.ext.android.getCurrentScope
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -22,6 +25,8 @@ class PlayerActivity : AppCompatActivity() {
         const val EXTRA_ACCOUNT_ID = "extra_account_id"
     }
 
+    val matchAdapter: MatchAdapter by inject()
+
     val playerViewModel: PlayerViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,21 +35,35 @@ class PlayerActivity : AppCompatActivity() {
         bindScope(getCurrentScope())
 
         setUpViewListeners()
+        setUpRecentMatchAdapter()
 
-        playerViewModel.getPlayer()
-                .observe(this, Observer<PlayerState> {
-                    if (it != null) {
-                        this.handlePlayerState(it)
-                    }
-                })
+        observePlayerFromPlayerViewModel()
+        observeMatchesFromPlayerModel()
+    }
+
+    private fun setUpRecentMatchAdapter() {
+        recent_matches_rv.layoutManager = LinearLayoutManager(this)
+        recent_matches_rv.adapter = matchAdapter
+    }
+
+    private fun observeMatchesFromPlayerModel() {
         playerViewModel.getRecentMatches()
                 .observe(this, Observer<RecentMatchesState> {
                     if (it != null) {
                         this.handleRecentMatchesState(it)
                     }
                 })
-        playerViewModel.fetchPlayer(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
         playerViewModel.fetchRecentMatches(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
+    }
+
+    private fun observePlayerFromPlayerViewModel() {
+        playerViewModel.getPlayer()
+                .observe(this, Observer<PlayerState> {
+                    if (it != null) {
+                        this.handlePlayerState(it)
+                    }
+                })
+        playerViewModel.fetchPlayer(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
     }
 
     private fun handlePlayerState(playerState: PlayerState) {
@@ -65,6 +84,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private fun setUpViewListeners() {
         error_view.listener = errorListener
+        empty_view.listener = emptyListener
     }
 
     private fun setUpForPlayerLoading() {
@@ -94,15 +114,31 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun setUpRecentMatchesForLoading() {
-
+        progress.visibility = VISIBLE
+        recent_matches_rv.visibility = GONE
+        error_view.visibility = GONE
+        empty_view.visibility = GONE
     }
 
     private fun setUpForRecentMatchesError(errorMessage: String?) {
+        error_view.visibility = VISIBLE
+        recent_matches_rv.visibility = GONE
+        empty_view.visibility = GONE
         displayErrorMessage(errorMessage)
     }
 
     private fun setUpForRecentMatchesSuccess(matches: List<Match>) {
-
+        progress.visibility = GONE
+        empty_view.visibility = VISIBLE
+        error_view.visibility = GONE
+        
+        if (matches.isNotEmpty()) {
+            recent_matches_rv.visibility = VISIBLE
+            matchAdapter.items = matches
+            matchAdapter.notifyDataSetChanged()
+        } else {
+            recent_matches_rv.visibility = GONE
+        }
     }
 
     private fun displayErrorMessage(errorMessage: String?) {
@@ -121,8 +157,17 @@ class PlayerActivity : AppCompatActivity() {
 
     private val errorListener = object : ErrorListener {
         override fun onRetryClicked() {
+            playerViewModel.fetchRecentMatches(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
             playerViewModel.fetchPlayer(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
         }
+    }
+
+    private val emptyListener = object : EmptyListener {
+        override fun onCheckAgainClicked() {
+            playerViewModel.fetchRecentMatches(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
+            playerViewModel.fetchPlayer(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
+        }
+
     }
 
 }

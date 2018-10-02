@@ -17,6 +17,7 @@ import com.pepela.data.source.player.PlayerDataStore
 import com.pepela.data.source.player.PlayerDataStoreFactory
 import com.pepela.opendota.BuildConfig
 import com.pepela.opendota.UiThread
+import com.pepela.opendota.player.MatchAdapter
 import com.pepela.opendota.player.PlayerViewModel
 import com.pepela.remote.player.MatchRemoteImpl
 import com.pepela.remote.player.PlayerRemoteImpl
@@ -59,5 +60,6 @@ val applicationModule = module(override = true) {
 val playerModule = module("Player", override = true) {
     factory { GetPlayerUseCase(get(), get(), get()) }
     factory { GetRecentMatchesUseCase(get(), get(), get()) }
+    factory { MatchAdapter() }
     viewModel { PlayerViewModel(get(), get()) }
 }
