@@ -2,15 +2,16 @@ package com.pepela.remote.player.mapper.match
 
 import com.pepela.data.match.model.Side
 import com.pepela.remote.EntityMapper
-import com.pepela.remote.player.model.match.SideModel
 
-open class SideMapper : EntityMapper<SideModel, Side> {
+class SideMapper : EntityMapper<Long, Side> {
 
-    override fun from(model: SideModel): Side {
-        return when (model) {
-            SideModel.DIRE -> Side.DIRE
-            SideModel.RADIANT -> Side.RADIANT
+    override fun from(model: Long): Side {
+        return if (model in 0..4) {
+            Side.RADIANT
+        } else {
+            Side.DIRE
         }
+
     }
 
 }

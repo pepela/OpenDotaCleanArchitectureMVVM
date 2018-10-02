@@ -3,7 +3,7 @@ package com.pepela.remote.player.model.match
 import com.google.gson.annotations.SerializedName
 
 class MatchModel(@SerializedName("match_id") val id: Long,
-                 @SerializedName("player_slot") val playerSlot: SideModel,
+                 @SerializedName("player_slot") val playerSlot: Long,
                  @SerializedName("radiant_win") val radiantWin: Boolean,
                  val duration: Long,
                  @SerializedName("hero_id") val heroId: Long,
