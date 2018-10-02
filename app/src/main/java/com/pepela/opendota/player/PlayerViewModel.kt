@@ -3,32 +3,50 @@ package com.pepela.opendota.player
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.pepela.data.match.interactor.GetRecentMatchesUseCase
 import com.pepela.data.player.interactor.GetPlayerUseCase
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 
-class PlayerViewModel(private val getPlayerUseCase: GetPlayerUseCase) : ViewModel() {
+class PlayerViewModel(private val getPlayerUseCase: GetPlayerUseCase,
+                      private val getRecentMatchesUseCase: GetRecentMatchesUseCase)
+    : ViewModel() {
 
     private val playerLiveData: MutableLiveData<PlayerState> = MutableLiveData()
-    private var disposable: Disposable? = null
+    private val recentMatchesLiveData: MutableLiveData<RecentMatchesState> = MutableLiveData()
+    private val compositeDisposable = CompositeDisposable()
 
     override fun onCleared() {
-        disposable?.dispose()
+        compositeDisposable.dispose()
         super.onCleared()
     }
 
     fun getPlayer(): LiveData<PlayerState> = playerLiveData
 
+    fun getRecentMatches(): LiveData<RecentMatchesState> = recentMatchesLiveData
+
     fun fetchPlayer(accountId: Long) {
         playerLiveData.postValue(PlayerState.Loading)
-        disposable = getPlayerUseCase.execute(accountId)
+        compositeDisposable.add(getPlayerUseCase.execute(accountId)
                 .subscribe({
                     Timber.d(it.toString())
                     playerLiveData.postValue(PlayerState.Success(it))
                 }, {
                     Timber.e(it)
                     playerLiveData.postValue(PlayerState.Error(it.message))
-                })
+                }))
+    }
+
+    fun fetchRecentMatches(accountId: Long) {
+        recentMatchesLiveData.postValue(RecentMatchesState.Loading)
+        compositeDisposable.add(getRecentMatchesUseCase.execute(accountId)
+                .subscribe({
+                    Timber.d(it.toString())
+                    recentMatchesLiveData.postValue(RecentMatchesState.Success(it))
+                }, {
+                    Timber.e(it)
+                    recentMatchesLiveData.postValue(RecentMatchesState.Error(it.message))
+                }))
     }
 
 }

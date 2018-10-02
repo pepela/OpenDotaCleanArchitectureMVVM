@@ -4,7 +4,7 @@ import com.pepela.data.player.model.Rank
 
 class RankFactory {
 
-    companion object {
+    companion object Factory{
 
         fun randomRank() = Rank.values().toList().shuffled().first()
 

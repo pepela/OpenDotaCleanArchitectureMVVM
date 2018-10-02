@@ -3,6 +3,7 @@ package com.pepela.data.match.model
 import java.util.*
 
 data class Match(val id: Long,
+                 val side: Side,
                  val radiantWin: Boolean,
                  val duration: Long,
                  val heroId: Long,

@@ -7,10 +7,9 @@ import com.pepela.data.player.model.Player
 import com.pepela.data.repository.PlayerRepository
 import io.reactivex.Flowable
 
-open class GetPlayerUseCase(
-        val repository: PlayerRepository,
-        threadExecutor: ThreadExecutor,
-        postExecutionThread: PostExecutionThread)
+open class GetPlayerUseCase(private val repository: PlayerRepository,
+                            threadExecutor: ThreadExecutor,
+                            postExecutionThread: PostExecutionThread)
     : FlowableUseCase<Player, Long?>(threadExecutor, postExecutionThread) {
 
     public override fun buildUseCase(params: Long?): Flowable<Player> {
