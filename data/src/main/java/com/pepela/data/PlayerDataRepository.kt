@@ -1,6 +1,7 @@
 package com.pepela.data
 
 import com.pepela.data.player.model.Player
+import com.pepela.data.player.model.Profile
 import com.pepela.data.repository.PlayerRepository
 import com.pepela.data.source.player.PlayerDataStoreFactory
 import io.reactivex.Flowable
@@ -21,4 +22,6 @@ class PlayerDataRepository(private val factory: PlayerDataStoreFactory)
 
     override fun clearPlayers() = factory.retrieveLocalDataStore().clearPlayers()
 
+    override fun searchPlayer(name: String): Flowable<List<Profile>> =
+            factory.retrieveRemoteDataStore().searchPlayer(name)
 }

@@ -10,6 +10,7 @@ class ProfileFactory {
 
         fun makeProfile() = Profile(randomUuid(), randomLong(), randomUuid(), randomUuid())
 
+        fun makeProfiles(count: Int) = MutableList(count) { makeProfile() }
     }
 
 }

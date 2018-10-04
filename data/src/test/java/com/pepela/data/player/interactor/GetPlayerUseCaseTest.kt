@@ -17,11 +17,12 @@ class GetPlayerUseCaseTest {
         const val PLAYER_ID = 1L
     }
 
-    val playerRepository = mock<PlayerRepository>()
-    val threadExecutor = mock<ThreadExecutor>()
-    val postExecutionThread = mock<PostExecutionThread>()
+    private val playerRepository = mock<PlayerRepository>()
+    private val threadExecutor = mock<ThreadExecutor>()
+    private val postExecutionThread = mock<PostExecutionThread>()
 
-    val getPlayerUseCase = GetPlayerUseCase(playerRepository, threadExecutor, postExecutionThread)
+    private val getPlayerUseCase =
+            GetPlayerUseCase(playerRepository, threadExecutor, postExecutionThread)
 
 
     @Test
@@ -43,7 +44,7 @@ class GetPlayerUseCaseTest {
         val player = makePlayer()
         whenever(playerRepository.getPlayer(any())).thenReturn(Flowable.just(player))
         val testObserver = getPlayerUseCase.buildUseCase(PLAYER_ID).test()
-        
+
         testObserver.assertValue(player)
     }
 

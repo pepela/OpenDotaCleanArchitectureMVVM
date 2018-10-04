@@ -10,7 +10,7 @@ class MatchModelFactory {
     companion object Factory {
 
         fun makeMatchModel(): MatchModel =
-                MatchModel(randomLong(), randomSideModel(), randomBoolean(), randomLong(),
+                MatchModel(randomLong(), randomLong(), randomBoolean(), randomLong(),
                         randomLong(), randomLong(), randomLong(), randomLong(), randomLong(),
                         randomLong(), randomLong(), randomLong(), randomLong(), randomLong(),
                         randomLong())

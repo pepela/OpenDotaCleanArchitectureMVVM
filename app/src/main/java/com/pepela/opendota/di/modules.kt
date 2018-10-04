@@ -44,7 +44,7 @@ val applicationModule = module(override = true) {
 
     factory { PlayerServiceFactory.makePlayerService(BuildConfig.DEBUG) }
 
-    factory<PlayerDataStore>(name = "remote") { PlayerRemoteImpl(get(), get()) }
+    factory<PlayerDataStore>(name = "remote") { PlayerRemoteImpl(get(), get(), get()) }
     factory<PlayerDataStore>(name = "local") { PlayerCacheImpl() }
     factory { PlayerDataStoreFactory(get("remote"), get("local")) }
     factory<PlayerRepository> { PlayerDataRepository(get()) }

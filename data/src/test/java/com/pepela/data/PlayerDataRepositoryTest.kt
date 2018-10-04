@@ -23,6 +23,7 @@ class PlayerDataRepositoryTest {
 
     companion object {
         private const val PLAYER_ID = 1L
+        private const val PLAYER_NAME = "W1sh-"
     }
 
     @Before
@@ -36,24 +37,28 @@ class PlayerDataRepositoryTest {
     @Test
     fun clearPlayers_completes() {
         val testObserver = playerDataRepository.clearPlayers().test()
+
         testObserver.assertComplete()
     }
 
     @Test
     fun clearPlayers_calls_local_data_store() {
         playerDataRepository.clearPlayers().test()
+
         verify(playerLocalDataStore).clearPlayers()
     }
 
     @Test
     fun clearPlayers_never_calls_remote_data_store() {
         playerDataRepository.clearPlayers().test()
+
         verify(playerRemoteDataStore, never()).clearPlayers()
     }
 
     @Test
     fun savePlayer_completes() {
         val testObserver = playerDataRepository.savePlayer(makePlayer()).test()
+
         testObserver.assertComplete()
     }
 
@@ -66,6 +71,7 @@ class PlayerDataRepositoryTest {
     @Test
     fun savePlayer_never_calls_remote_data_store() {
         playerDataRepository.savePlayer(makePlayer())
+
         verify(playerRemoteDataStore, never()).savePlayer(any())
     }
 
@@ -76,6 +82,7 @@ class PlayerDataRepositoryTest {
         whenever(playerLocalDataStore.getPlayer(any())).thenReturn(Flowable.just(makePlayer()))
         whenever(playerLocalDataStore.savePlayer(any())).thenReturn(Completable.complete())
         val testObserver = playerDataRepository.getPlayer(PLAYER_ID).test()
+
         testObserver.assertComplete()
     }
 
@@ -86,6 +93,7 @@ class PlayerDataRepositoryTest {
         val player = makePlayer()
         whenever(playerLocalDataStore.getPlayer(any())).thenReturn(Flowable.just(player))
         val testObserver = playerDataRepository.getPlayer(PLAYER_ID).test()
+
         testObserver.assertValue(player)
     }
 
@@ -96,7 +104,22 @@ class PlayerDataRepositoryTest {
         val player = makePlayer()
         whenever(playerRemoteDataStore.getPlayer(any())).thenReturn(Flowable.just(player))
         val testObserver = playerDataRepository.getPlayer(PLAYER_ID).test()
+
         testObserver.assertValue(player)
+    }
+
+    @Test
+    fun searchPlayer_calls_remote_data_store() {
+        playerDataRepository.searchPlayer(PLAYER_NAME)
+
+        verify(playerRemoteDataStore).searchPlayer(PLAYER_NAME)
+    }
+
+    @Test
+    fun searchPlayer_never_calls_local_data_store() {
+        playerDataRepository.searchPlayer(PLAYER_NAME)
+
+        verify(playerLocalDataStore, never()).searchPlayer(PLAYER_NAME)
     }
 
 }
