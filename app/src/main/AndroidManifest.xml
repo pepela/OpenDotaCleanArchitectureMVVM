@@ -16,7 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".LauncherActivity"
+            android:name=".platform.LauncherActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,8 @@
         </activity>
         
         <activity android:name=".player.PlayerActivity" />
+
+        <activity android:name=".search.SearchActivity" />
 
     </application>
 </manifest>

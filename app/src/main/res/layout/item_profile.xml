@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/avatar_iv"
+        android:layout_width="@dimen/profile_avatar_size"
+        android:layout_height="@dimen/profile_avatar_size"
+        android:layout_marginStart="@dimen/list_item_margin"
+        android:layout_marginTop="@dimen/list_item_margin"
+        android:layout_marginBottom="@dimen/list_item_margin"
+        android:contentDescription="@string/player_content_description_avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/dota" />
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/list_item_margin"
+        app:layout_constraintBottom_toTopOf="@id/last_player_tv"
+        app:layout_constraintStart_toEndOf="@+id/avatar_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="W1sh-" />
+
+    <TextView
+        android:id="@+id/last_player_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="@dimen/list_item_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/avatar_iv"
+        app:layout_constraintTop_toBottomOf="@+id/name_tv"
+        tools:text="01.01.1000 18:30" />
+
+</android.support.constraint.ConstraintLayout>

@@ -2,15 +2,14 @@ package com.pepela.opendota.player
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.View.GONE
-import android.view.View.VISIBLE
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.pepela.data.match.model.Match
 import com.pepela.data.player.model.Player
+import com.pepela.opendota.platform.BaseActivity
 import com.pepela.opendota.R
+import com.pepela.opendota.extension.invisible
+import com.pepela.opendota.extension.visible
 import com.pepela.opendota.widget.empty.EmptyListener
 import com.pepela.opendota.widget.error.ErrorListener
 import kotlinx.android.synthetic.main.activity_player.*
@@ -19,7 +18,7 @@ import org.koin.android.scope.ext.android.bindScope
 import org.koin.android.scope.ext.android.getCurrentScope
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class PlayerActivity : AppCompatActivity() {
+class PlayerActivity : BaseActivity() {
 
     companion object {
         const val EXTRA_ACCOUNT_ID = "extra_account_id"
@@ -88,61 +87,58 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun setUpForPlayerLoading() {
-        progress.visibility = VISIBLE
-        error_view.visibility = GONE
-        avatar_iv.visibility = GONE
-        name_tv.visibility = GONE
+        progress.visible()
+        error_view.invisible()
+        avatar_iv.invisible()
+        name_tv.invisible()
     }
 
     private fun setUpForPlayerError(errorMessage: String?) {
-        progress.visibility = GONE
-        error_view.visibility = VISIBLE
-        avatar_iv.visibility = GONE
-        name_tv.visibility = GONE
+        progress.invisible()
+        error_view.visible()
+        avatar_iv.invisible()
+        name_tv.invisible()
 
         displayErrorMessage(errorMessage)
     }
 
     private fun setUpForPlayerSuccess(player: Player) {
-        progress.visibility = GONE
-        error_view.visibility = GONE
-        avatar_iv.visibility = VISIBLE
-        name_tv.visibility = VISIBLE
+        progress.invisible()
+        error_view.invisible()
+        empty_view.invisible()
+        avatar_iv.visible()
+        name_tv.visible()
 
         setPlayerName(player)
         setPlayerAvatar(player)
     }
 
     private fun setUpRecentMatchesForLoading() {
-        progress.visibility = VISIBLE
-        recent_matches_rv.visibility = GONE
-        error_view.visibility = GONE
-        empty_view.visibility = GONE
+        progress.visible()
+        recent_matches_rv.invisible()
+        error_view.invisible()
+        empty_view.invisible()
     }
 
     private fun setUpForRecentMatchesError(errorMessage: String?) {
-        error_view.visibility = VISIBLE
-        recent_matches_rv.visibility = GONE
-        empty_view.visibility = GONE
+        error_view.visible()
+        recent_matches_rv.invisible()
+        empty_view.invisible()
         displayErrorMessage(errorMessage)
     }
 
     private fun setUpForRecentMatchesSuccess(matches: List<Match>) {
-        progress.visibility = GONE
-        empty_view.visibility = VISIBLE
-        error_view.visibility = GONE
-        
+        progress.invisible()
+        empty_view.invisible()
+        error_view.invisible()
+
         if (matches.isNotEmpty()) {
-            recent_matches_rv.visibility = VISIBLE
+            recent_matches_rv.visible()
             matchAdapter.items = matches
             matchAdapter.notifyDataSetChanged()
         } else {
-            recent_matches_rv.visibility = GONE
+            recent_matches_rv.invisible()
         }
-    }
-
-    private fun displayErrorMessage(errorMessage: String?) {
-        Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
     }
 
     private fun setPlayerName(player: Player?) {
@@ -167,7 +163,6 @@ class PlayerActivity : AppCompatActivity() {
             playerViewModel.fetchRecentMatches(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
             playerViewModel.fetchPlayer(intent.getLongExtra(EXTRA_ACCOUNT_ID, 0))
         }
-
     }
 
 }

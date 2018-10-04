@@ -1,7 +1,7 @@
 package com.pepela.data.repository
 
 import com.pepela.data.player.model.Player
-import com.pepela.data.player.model.Profile
+import com.pepela.data.player.model.SearchProfile
 import io.reactivex.Completable
 import io.reactivex.Flowable
 
@@ -13,5 +13,5 @@ interface PlayerRepository {
 
     fun clearPlayers(): Completable
 
-    fun searchPlayer(name: String): Flowable<List<Profile>>
+    fun searchProfile(name: String): Flowable<List<SearchProfile>>
 }

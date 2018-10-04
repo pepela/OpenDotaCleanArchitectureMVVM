@@ -9,6 +9,7 @@ import com.pepela.data.executor.PostExecutionThread
 import com.pepela.data.executor.ThreadExecutor
 import com.pepela.data.match.interactor.GetRecentMatchesUseCase
 import com.pepela.data.player.interactor.GetPlayerUseCase
+import com.pepela.data.player.interactor.SearchProfileUseCase
 import com.pepela.data.repository.MatchRepository
 import com.pepela.data.repository.PlayerRepository
 import com.pepela.data.source.match.MatchDataStore
@@ -19,6 +20,8 @@ import com.pepela.opendota.BuildConfig
 import com.pepela.opendota.UiThread
 import com.pepela.opendota.player.MatchAdapter
 import com.pepela.opendota.player.PlayerViewModel
+import com.pepela.opendota.search.SearchProfileAdapter
+import com.pepela.opendota.search.SearchViewModel
 import com.pepela.remote.player.MatchRemoteImpl
 import com.pepela.remote.player.PlayerRemoteImpl
 import com.pepela.remote.player.PlayerServiceFactory
@@ -27,6 +30,7 @@ import com.pepela.remote.player.mapper.match.SideMapper
 import com.pepela.remote.player.mapper.player.PlayerMapper
 import com.pepela.remote.player.mapper.player.ProfileMapper
 import com.pepela.remote.player.mapper.player.RankMapper
+import com.pepela.remote.player.mapper.player.SearchProfileMapper
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -35,6 +39,7 @@ val applicationModule = module(override = true) {
 
     factory { RankMapper() }
     factory { ProfileMapper() }
+    factory { SearchProfileMapper() }
     factory { PlayerMapper(get(), get()) }
     factory { SideMapper() }
     factory { MatchMapper(get()) }
@@ -62,4 +67,10 @@ val playerModule = module("Player", override = true) {
     factory { GetRecentMatchesUseCase(get(), get(), get()) }
     factory { MatchAdapter() }
     viewModel { PlayerViewModel(get(), get()) }
+}
+
+val searchModule = module("Search", override = true) {
+    factory { SearchProfileUseCase(get(), get(), get()) }
+    factory { SearchProfileAdapter() }
+    viewModel { SearchViewModel(get()) }
 }

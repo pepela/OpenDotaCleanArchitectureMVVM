@@ -2,6 +2,7 @@ package com.pepela.cache.player
 
 import com.pepela.data.player.model.Player
 import com.pepela.data.player.model.Profile
+import com.pepela.data.player.model.SearchProfile
 import com.pepela.data.source.player.PlayerDataStore
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -22,7 +23,7 @@ class PlayerCacheImpl : PlayerDataStore {
 
     override fun isCached(): Single<Boolean> = Single.just(false)
 
-    override fun searchPlayer(name: String): Flowable<List<Profile>> {
+    override fun searchPlayer(name: String): Flowable<List<SearchProfile>> {
         TODO("not implemented")
     }
 }

@@ -8,4 +8,5 @@
     <string name="empty_action_check_again">Check again</string>
 
     <string name="player_content_description_avatar">Avatar</string>
+    <string name="search_msg_player_name">Player name</string>
 </resources>

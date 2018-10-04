@@ -65,6 +65,7 @@ dependencies {
     implementation mobileUiDependencies.koinArch
     implementation mobileUiDependencies.koin
     implementation mobileUiDependencies.ankoCommons
+    implementation mobileUiDependencies.rxBindingAppCompatV7
 
     implementation presentationDependencies.archExtensions
     implementation mobileUiDependencies.roomRxJava

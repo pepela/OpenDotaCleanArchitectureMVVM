@@ -110,14 +110,14 @@ class PlayerDataRepositoryTest {
 
     @Test
     fun searchPlayer_calls_remote_data_store() {
-        playerDataRepository.searchPlayer(PLAYER_NAME)
+        playerDataRepository.searchProfile(PLAYER_NAME)
 
         verify(playerRemoteDataStore).searchPlayer(PLAYER_NAME)
     }
 
     @Test
     fun searchPlayer_never_calls_local_data_store() {
-        playerDataRepository.searchPlayer(PLAYER_NAME)
+        playerDataRepository.searchProfile(PLAYER_NAME)
 
         verify(playerLocalDataStore, never()).searchPlayer(PLAYER_NAME)
     }

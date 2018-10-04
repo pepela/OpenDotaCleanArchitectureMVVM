@@ -6,8 +6,9 @@ import com.nhaarman.mockito_kotlin.whenever
 import com.pepela.remote.player.mapper.player.PlayerMapper
 import com.pepela.remote.player.mapper.player.ProfileMapper
 import com.pepela.remote.player.mapper.player.RankMapper
+import com.pepela.remote.player.mapper.player.SearchProfileMapper
 import com.pepela.remote.test.factory.player.PlayerModelFactory.Factory.makePlayerModel
-import com.pepela.remote.test.factory.player.ProfileModelFactory.Factory.makeProfileModels
+import com.pepela.remote.test.factory.player.SearchProfileFactory.Factory.makeSearchProfileModels
 import io.reactivex.Flowable
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,11 +24,12 @@ class PlayerRemoteImplTest {
 
     private val rankMapper = RankMapper()
     private val profileMapper = ProfileMapper()
+    private val searchProfileMapper = SearchProfileMapper()
     private val playerMapper = PlayerMapper(rankMapper, profileMapper)
 
     private val playerService = mock<PlayerService>()
 
-    private val playerRemoteImpl = PlayerRemoteImpl(playerService, playerMapper, profileMapper)
+    private val playerRemoteImpl = PlayerRemoteImpl(playerService, playerMapper, searchProfileMapper)
 
     @Test
     fun getPlayer_completes() {
@@ -48,8 +50,8 @@ class PlayerRemoteImplTest {
 
     @Test
     fun searchPlayer_completes() {
-        val profileModels = makeProfileModels(2)
-        whenever(playerService.searchPlayers(PLAYER_NAME)).thenReturn(Flowable.just(profileModels))
+        val searchProfileModels = makeSearchProfileModels(2)
+        whenever(playerService.searchPlayers(PLAYER_NAME)).thenReturn(Flowable.just(searchProfileModels))
         val testObserver = playerRemoteImpl.searchPlayer(PLAYER_NAME).test()
 
         testObserver.assertComplete()
@@ -57,11 +59,11 @@ class PlayerRemoteImplTest {
 
     @Test
     fun searchPlayer_returns_data() {
-        val profileModels = makeProfileModels(2)
-        whenever(playerService.searchPlayers(PLAYER_NAME)).thenReturn(Flowable.just(profileModels))
+        val searchProfileModels = makeSearchProfileModels(2)
+        whenever(playerService.searchPlayers(PLAYER_NAME)).thenReturn(Flowable.just(searchProfileModels))
         val testObserver = playerRemoteImpl.searchPlayer(PLAYER_NAME).test()
 
-        testObserver.assertValue(profileMapper.from(profileModels))
+        testObserver.assertValue(searchProfileMapper.from(searchProfileModels))
     }
 
 }
