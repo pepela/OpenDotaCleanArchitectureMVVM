@@ -3,12 +3,12 @@ package com.pepela.opendota.search
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.pepela.data.player.model.SearchProfile
 import com.pepela.opendota.R
-import com.pepela.opendota.extension.invisible
 import com.pepela.opendota.extension.loadFromUrl
 import com.pepela.opendota.extension.toSimpleDateFormat
 import com.pepela.opendota.extension.visible
@@ -33,7 +33,7 @@ class SearchProfileAdapter : RecyclerView.Adapter<SearchProfileAdapter.ViewHolde
             holder.lastPlayed.visible()
             holder.lastPlayed.text = profile.lastPlayed!!.toSimpleDateFormat()
         } else {
-            holder.lastPlayed.invisible()
+            holder.lastPlayed.visibility = INVISIBLE
         }
     }
 
