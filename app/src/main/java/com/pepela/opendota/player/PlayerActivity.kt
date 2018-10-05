@@ -15,7 +15,7 @@ import com.pepela.opendota.widget.error.ErrorListener
 import kotlinx.android.synthetic.main.activity_player.*
 import org.koin.android.ext.android.inject
 import org.koin.android.scope.ext.android.bindScope
-import org.koin.android.scope.ext.android.getCurrentScope
+import org.koin.android.scope.ext.android.getOrCreateScope
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class PlayerActivity : BaseActivity() {
@@ -31,7 +31,7 @@ class PlayerActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
-        bindScope(getCurrentScope())
+        bindScope(getOrCreateScope("Player"))
 
         setUpViewListeners()
         setUpRecentMatchAdapter()

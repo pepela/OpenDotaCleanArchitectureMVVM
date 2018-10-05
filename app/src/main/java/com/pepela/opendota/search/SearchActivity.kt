@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.pepela.data.player.model.SearchProfile
-import com.pepela.opendota.platform.BaseActivity
 import com.pepela.opendota.R
 import com.pepela.opendota.extension.invisible
 import com.pepela.opendota.extension.visible
+import com.pepela.opendota.platform.BaseActivity
 import com.pepela.opendota.player.PlayerActivity
 import com.pepela.opendota.player.PlayerActivity.Companion.EXTRA_ACCOUNT_ID
 import com.pepela.opendota.widget.empty.EmptyListener
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_search.*
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 import org.koin.android.scope.ext.android.bindScope
-import org.koin.android.scope.ext.android.getCurrentScope
+import org.koin.android.scope.ext.android.getOrCreateScope
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.concurrent.TimeUnit
 
@@ -31,7 +31,7 @@ class SearchActivity : BaseActivity() {
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindScope(getCurrentScope())
+        bindScope(getOrCreateScope("Search"))
 
         setContentView(R.layout.activity_search)
 

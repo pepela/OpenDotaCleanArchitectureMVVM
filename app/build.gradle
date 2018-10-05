@@ -66,8 +66,7 @@ dependencies {
     implementation mobileUiDependencies.koin
     implementation mobileUiDependencies.ankoCommons
     implementation mobileUiDependencies.rxBindingAppCompatV7
-
-    implementation presentationDependencies.archExtensions
+    implementation mobileUiDependencies.archExtensions
     implementation mobileUiDependencies.roomRxJava
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
