@@ -1,22 +1,22 @@
 package com.pepela.opendota.player
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.pepela.data.match.model.Match
 import com.pepela.data.player.model.Player
-import com.pepela.opendota.platform.BaseActivity
 import com.pepela.opendota.R
 import com.pepela.opendota.extension.invisible
 import com.pepela.opendota.extension.visible
+import com.pepela.opendota.platform.BaseActivity
 import com.pepela.opendota.widget.empty.EmptyListener
 import com.pepela.opendota.widget.error.ErrorListener
 import kotlinx.android.synthetic.main.activity_player.*
 import org.koin.android.ext.android.inject
-import org.koin.android.scope.ext.android.bindScope
-import org.koin.android.scope.ext.android.getOrCreateScope
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.scope.ext.android.bindScope
+import org.koin.androidx.scope.ext.android.getOrCreateScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlayerActivity : BaseActivity() {
 

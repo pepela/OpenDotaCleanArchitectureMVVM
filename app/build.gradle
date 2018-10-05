@@ -54,10 +54,10 @@ dependencies {
     implementation mobileUiDependencies.kotlin
     implementation mobileUiDependencies.rxKotlin
     implementation mobileUiDependencies.androidAnnotations
-    implementation mobileUiDependencies.appCompatV7
-    implementation mobileUiDependencies.supportRecyclerView
+    implementation mobileUiDependencies.appCompat
+    implementation mobileUiDependencies.recyclerView
     implementation mobileUiDependencies.constraintLayout
-    implementation mobileUiDependencies.supportDesign
+    implementation mobileUiDependencies.material
     implementation mobileUiDependencies.timber
     implementation mobileUiDependencies.rxAndroid
     implementation mobileUiDependencies.glide
@@ -65,12 +65,12 @@ dependencies {
     implementation mobileUiDependencies.koinArch
     implementation mobileUiDependencies.koin
     implementation mobileUiDependencies.ankoCommons
-    implementation mobileUiDependencies.rxBindingAppCompatV7
+    implementation mobileUiDependencies.rxBindingAppCompat
     implementation mobileUiDependencies.archExtensions
     implementation mobileUiDependencies.roomRxJava
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
-    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+    androidTestImplementation mobileUiTestDependencies.archTesting
     androidTestImplementation('org.koin:koin-test:1.0.0-RC-1', {
         exclude group: 'org.jetbrains.kotlin'
         exclude group: 'org.mockito'

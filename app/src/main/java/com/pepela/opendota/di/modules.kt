@@ -32,7 +32,7 @@ import com.pepela.remote.player.mapper.player.ProfileMapper
 import com.pepela.remote.player.mapper.player.RankMapper
 import com.pepela.remote.player.mapper.player.SearchProfileMapper
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.viewmodel.ext.koin.viewModel
+import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val applicationModule = module(override = true) {

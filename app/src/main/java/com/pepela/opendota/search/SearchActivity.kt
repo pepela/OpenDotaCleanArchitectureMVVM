@@ -1,9 +1,9 @@
 package com.pepela.opendota.search
 
 import android.annotation.SuppressLint
-import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.pepela.data.player.model.SearchProfile
 import com.pepela.opendota.R
@@ -17,9 +17,9 @@ import com.pepela.opendota.widget.error.ErrorListener
 import kotlinx.android.synthetic.main.activity_search.*
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
-import org.koin.android.scope.ext.android.bindScope
-import org.koin.android.scope.ext.android.getOrCreateScope
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.scope.ext.android.bindScope
+import org.koin.androidx.scope.ext.android.getOrCreateScope
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.concurrent.TimeUnit
 
 class SearchActivity : BaseActivity() {
