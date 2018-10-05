@@ -1,4 +1,6 @@
-[![Build Status](https://app.bitrise.io/app/075d9f6ca0e7ba02/status.svg?token=FG6UVEqKLj5D4oM4gkf68Q&branch=master)](https://app.bitrise.io/app/075d9f6ca0e7ba02)
+[![Build Status](https://app.bitrise.io/app/c87d7eb47e3d847b/status.svg?token=8Z1yPHlnhxflhazx7m-OoQ&branch=master
+)](https://app.bitrise.io/app/c87d7eb47e3d847b)
+
 
 # Open dota android client using clean architecture
 
