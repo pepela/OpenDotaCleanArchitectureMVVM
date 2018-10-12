@@ -1,12 +1,14 @@
 package com.pepela.opendota.player
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.pepela.data.match.model.Match
+import com.pepela.data.match.model.Side
 import com.pepela.opendota.R
+import com.pepela.opendota.extension.setBackgroundColorRes
 
 class MatchAdapter : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
@@ -20,11 +22,16 @@ class MatchAdapter : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val match = items[position]
-        holder.match_id_tv.text = match.id.toString()
+        with(match) {
+            holder.matchIdTv.text = id.toString()
+
+            holder.itemView.setBackgroundColorRes(if (side == Side.RADIANT && radiantWin)
+                R.color.green else R.color.red)
+        }
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val match_id_tv: TextView = view.findViewById(R.id.match_id_tv)
+        val matchIdTv: TextView = view.findViewById(R.id.match_id_tv)
     }
 
 }

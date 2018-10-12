@@ -1,12 +1,14 @@
 package com.pepela.opendota.extension
 
 import android.graphics.drawable.Drawable
-import androidx.annotation.LayoutRes
-import androidx.fragment.app.FragmentActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.annotation.ColorRes
+import androidx.annotation.LayoutRes
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.target.BaseTarget
@@ -20,9 +22,13 @@ fun View.cancelTransition() {
 
 fun View.isVisible() = this.visibility == View.VISIBLE
 
-fun View.visible() { this.visibility = View.VISIBLE }
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
 
-fun View.invisible() { this.visibility = View.GONE }
+fun View.invisible() {
+    this.visibility = View.GONE
+}
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int): View =
         LayoutInflater.from(context).inflate(layoutRes, this, false)
@@ -39,7 +45,7 @@ fun ImageView.loadUrlAndPostponeEnterTransition(url: String, activity: FragmentA
     Glide.with(context.applicationContext).load(url).into(target)
 }
 
-private class ImageViewBaseTarget (var imageView: ImageView?, var activity: FragmentActivity?) : BaseTarget<Drawable>() {
+private class ImageViewBaseTarget(var imageView: ImageView?, var activity: FragmentActivity?) : BaseTarget<Drawable>() {
     override fun removeCallback(cb: SizeReadyCallback?) {
         imageView = null
         activity = null
@@ -56,4 +62,8 @@ private class ImageViewBaseTarget (var imageView: ImageView?, var activity: Frag
     }
 
     override fun getSize(cb: SizeReadyCallback) = cb.onSizeReady(SIZE_ORIGINAL, SIZE_ORIGINAL)
+}
+
+fun View.setBackgroundColorRes(@ColorRes res: Int) {
+    this.setBackgroundColor(ContextCompat.getColor(this.context, res))
 }

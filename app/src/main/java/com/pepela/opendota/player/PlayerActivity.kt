@@ -2,6 +2,8 @@ package com.pepela.opendota.player
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.pepela.data.match.model.Match
@@ -24,7 +26,7 @@ class PlayerActivity : BaseActivity() {
         const val EXTRA_ACCOUNT_ID = "extra_account_id"
     }
 
-    val matchAdapter: MatchAdapter by inject()
+    private val matchAdapter: MatchAdapter by inject()
 
     val playerViewModel: PlayerViewModel by viewModel()
 
@@ -43,6 +45,7 @@ class PlayerActivity : BaseActivity() {
     private fun setUpRecentMatchAdapter() {
         recent_matches_rv.layoutManager = LinearLayoutManager(this)
         recent_matches_rv.adapter = matchAdapter
+        recent_matches_rv.addItemDecoration(DividerItemDecoration(this, VERTICAL))
     }
 
     private fun observeMatchesFromPlayerModel() {
