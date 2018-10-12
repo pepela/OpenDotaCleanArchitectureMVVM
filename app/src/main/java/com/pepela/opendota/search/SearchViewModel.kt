@@ -31,5 +31,4 @@ class SearchViewModel(private val searchProfileUseCase: SearchProfileUseCase) : 
                 }))
     }
 
-
 }

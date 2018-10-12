@@ -40,7 +40,7 @@ ext {
 
     dataDependencies = [
             rxKotlin:            "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
-            kotlin:              "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+            kotlin:              "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     ]
 
     dataTestDependencies = [

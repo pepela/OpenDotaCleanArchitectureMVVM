@@ -18,4 +18,5 @@ interface PlayerDataStore {
     fun isCached(): Single<Boolean>
 
     fun searchPlayer(name: String): Flowable<List<SearchProfile>>
+
 }

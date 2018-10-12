@@ -13,7 +13,6 @@ interface PlayerService {
     @GET("/api/players/{account_id}")
     fun getPlayer(@Path("account_id") id: Long): Flowable<PlayerModel>
 
-
     @GET("/api/players/{account_id}/recentMatches")
     fun getRecentMatches(@Path("account_id") id: Long): Flowable<List<MatchModel>>
 
