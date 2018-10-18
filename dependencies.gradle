@@ -26,6 +26,8 @@ ext {
     constraintLayoutVersion = '2.0.0-alpha2'
     ankoVersion = '0.10.6'
     rxBindingVersion = '2.2.0'
+    flipperVersion = '0.9.0'
+    leakcanaryVersion = '1.6.2'
 
     //Testing
     robolectricVersion = '3.4.2'
@@ -110,10 +112,14 @@ ext {
             roomRxJava:          "androidx.room:room-rxjava2:${roomVersion}",
             archExtensions:      "androidx.lifecycle:lifecycle-extensions:${roomVersion}",
             ankoCommons:         "org.jetbrains.anko:anko-commons:${ankoVersion}",
-            rxBindingAppCompat:  "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:${rxBindingVersion}"
+            rxBindingAppCompat:  "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:${rxBindingVersion}",
+            flipper:             "com.facebook.flipper:flipper:${flipperVersion}",
+            leakcanaryDebug:          "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
+            leakcanaryRelease:   "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}"
     ]
 
     mobileUiTestDependencies = [
+            koinTest:            "org.koin:koin-test:${koinVersion}",
             junit:               "junit:junit:${jUnitVersion}",
             kotlinJUnit:         "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
             assertj:             "org.assertj:assertj-core:${assertJVersion}",

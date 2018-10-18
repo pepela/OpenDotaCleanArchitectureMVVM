@@ -41,8 +41,6 @@ android {
     }
 }
 
-
-
 dependencies {
     def mobileUiDependencies = rootProject.ext.mobileUiDependencies
     def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
@@ -69,9 +67,14 @@ dependencies {
     implementation mobileUiDependencies.archExtensions
     implementation mobileUiDependencies.roomRxJava
 
+    debugImplementation mobileUiDependencies.leakcanaryDebug
+    debugImplementation mobileUiDependencies.flipper
+
+    releaseImplementation mobileUiDependencies.leakcanaryRelease
+
     testImplementation mobileUiTestDependencies.kotlinJUnit
     androidTestImplementation mobileUiTestDependencies.archTesting
-    androidTestImplementation('org.koin:koin-test:1.0.0-RC-1', {
+    androidTestImplementation(mobileUiTestDependencies.koinTest, {
         exclude group: 'org.jetbrains.kotlin'
         exclude group: 'org.mockito'
     })

@@ -60,14 +60,14 @@ dependencies {
     implementation cacheDependencies.kotlin
     implementation cacheDependencies.rxKotlin
     implementation cacheDependencies.gson
-    implementation 'androidx.room:room-runtime:2.0.0'
-    kapt 'androidx.room:room-compiler:2.0.0'
+    implementation cacheDependencies.roomRuntime
+    kapt cacheDependencies.roomCompiler
 
     testImplementation cacheTestDependencies.junit
     testImplementation cacheTestDependencies.kotlinJUnit
     testImplementation cacheTestDependencies.mockito
     testImplementation cacheTestDependencies.assertj
     testImplementation cacheTestDependencies.robolectric
-    testImplementation 'androidx.arch.core:core-testing:2.0.0'
-    testImplementation 'androidx.room:room-testing:2.0.0'
+    testImplementation cacheTestDependencies.archTesting
+    testImplementation cacheTestDependencies.roomTesting
 }
