@@ -14,4 +14,5 @@ interface PlayerRepository {
     fun clearPlayers(): Completable
 
     fun searchProfile(name: String): Flowable<List<SearchProfile>>
+
 }

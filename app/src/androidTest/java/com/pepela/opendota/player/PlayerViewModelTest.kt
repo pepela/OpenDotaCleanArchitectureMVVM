@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
+import com.pepela.data.match.interactor.GetRecentMatchesUseCase
 import com.pepela.data.player.interactor.GetPlayerUseCase
 import com.pepela.opendota.test.factory.DataFactory
 import com.pepela.opendota.test.factory.PlayerFactory
@@ -17,8 +18,9 @@ class PlayerViewModelTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
     val mockGetPlayerUseCase = mock<GetPlayerUseCase>()
+    val getRecentMatchesUseCase = mock<GetRecentMatchesUseCase>()
 
-    private val playerViewModel = PlayerViewModel(mockGetPlayerUseCase)
+    private val playerViewModel = PlayerViewModel(mockGetPlayerUseCase, getRecentMatchesUseCase)
 
     @Test
     fun getPlayer_returns_loading() {

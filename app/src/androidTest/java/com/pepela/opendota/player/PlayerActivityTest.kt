@@ -6,7 +6,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.whenever
 import com.pepela.data.repository.PlayerRepository
@@ -18,19 +17,17 @@ import io.reactivex.Flowable
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.koin.standalone.StandAloneContext.loadKoinModules
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 
-@RunWith(AndroidJUnit4::class)
 class PlayerActivityTest : KoinTest {
 
     companion object {
         private const val PLAYER_ID = 1L
     }
 
-    val mockPlayerRepository: PlayerRepository by inject()
+    private val mockPlayerRepository: PlayerRepository by inject()
 
     @Rule
     @JvmField
