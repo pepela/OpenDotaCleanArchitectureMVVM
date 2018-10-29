@@ -15,6 +15,14 @@ dependencies {
     implementation remoteDependencies.retrofit
     implementation remoteDependencies.retrofitConverter
     implementation remoteDependencies.retrofitAdapter
+    implementation remoteDependencies.arrowCore
+    implementation remoteDependencies.arrowSyntax
+    implementation remoteDependencies.arrowTypeClasses
+    implementation remoteDependencies.arrowData
+    implementation remoteDependencies.arrowInstancesCore
+    implementation remoteDependencies.arrowInstancesData
+
+    kapt remoteDependencies.arrowProcessor
 
     testImplementation remoteTestDependencies.junit
     testImplementation remoteTestDependencies.kotlinJUnit

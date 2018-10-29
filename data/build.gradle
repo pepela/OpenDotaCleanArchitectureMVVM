@@ -9,6 +9,14 @@ dependencies {
 
     implementation dataDependencies.kotlin
     implementation dataDependencies.rxKotlin
+    implementation dataDependencies.arrowCore
+    implementation dataDependencies.arrowSyntax
+    implementation dataDependencies.arrowTypeClasses
+    implementation dataDependencies.arrowData
+    implementation dataDependencies.arrowInstancesCore
+    implementation dataDependencies.arrowInstancesData
+
+    kapt dataDependencies.arrowProcessor
 
     testImplementation dataTestDependencies.junit
     testImplementation dataTestDependencies.kotlinJUnit

@@ -66,6 +66,14 @@ dependencies {
     implementation mobileUiDependencies.rxBindingAppCompat
     implementation mobileUiDependencies.archExtensions
     implementation mobileUiDependencies.roomRxJava
+    implementation mobileUiDependencies.arrowCore
+    implementation mobileUiDependencies.arrowSyntax
+    implementation mobileUiDependencies.arrowTypeClasses
+    implementation mobileUiDependencies.arrowData
+    implementation mobileUiDependencies.arrowInstancesCore
+    implementation mobileUiDependencies.arrowInstancesData
+
+    kapt mobileUiDependencies.arrowProcessor
 
     debugImplementation mobileUiDependencies.leakcanaryDebug
     debugImplementation mobileUiDependencies.flipper
