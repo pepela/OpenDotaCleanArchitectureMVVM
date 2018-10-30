@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name">"Open dota"</string>
-<string name="error_msg_loading_data">"Error loading data"</string>
-<string name="error_action_retry">"Retry"</string>
-<string name="empty_msg_no_data">"No data"</string>
-<string name="empty_action_check_again">"Check again"</string>
-<string name="player_content_description_avatar">"Avatar"</string>
-<string name="search_msg_player_name">"Player name"</string>
+    <string name="app_name" translatable="false">"Open dota"</string>
+    <string name="error_msg_loading_data">"Error loading data"</string>
+    <string name="error_action_retry">"Retry"</string>
+    <string name="empty_msg_no_data">"No data"</string>
+    <string name="empty_action_check_again">"Check again"</string>
+    <string name="player_content_description_avatar">"Avatar"</string>
+    <string name="search_msg_player_name">"Player name"</string>
 </resources>

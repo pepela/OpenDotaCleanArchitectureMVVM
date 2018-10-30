@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_name"></string>
-<string name="error_msg_loading_data">"მონაცემები ვერ ჩამოიტვირთა"</string>
-<string name="error_action_retry">"გამეორება"</string>
-<string name="empty_msg_no_data">"ინფორმაცია არაა"</string>
-<string name="empty_action_check_again">"კიდევ სცადეთ"</string>
-<string name="player_content_description_avatar">"ავატარი"</string>
-<string name="search_msg_player_name">"მოთამაშის სახელი"</string>
+    <string name="error_msg_loading_data">"მონაცემები ვერ ჩამოიტვირთა"</string>
+    <string name="error_action_retry">"გამეორება"</string>
+    <string name="empty_msg_no_data">"ინფორმაცია არაა"</string>
+    <string name="empty_action_check_again">"კიდევ სცადეთ"</string>
+    <string name="player_content_description_avatar">"ავატარი"</string>
+    <string name="search_msg_player_name">"მოთამაშის სახელი"</string>
 </resources>
