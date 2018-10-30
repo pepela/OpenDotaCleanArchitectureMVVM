@@ -37,8 +37,6 @@ ext {
     espressoVersion = '3.1.0-beta01'
     mockitoKotlinVersion = '1.6.0'
     mockitoAndroidVersion = '2.21.0'
-    androidSupportRunnerVersion = '1.0.0'
-    androidSupportRulesVersion = '1.0.0'
     runnerVersion = '1.1.0-beta01'
 
     dataDependencies = [
@@ -82,9 +80,7 @@ ext {
             mockito:             "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
             robolectric:         "org.robolectric:robolectric:${robolectricVersion}",
             roomTesting:         "androidx.room:room-testing:${roomVersion}",
-            archTesting:         "androidx.arch.core:core-testing:${roomVersion}",
-            supportRunner:       "com.android.support.test:runner:${androidSupportRunnerVersion}",
-            supportRules:        "com.android.support.test:rules:${androidSupportRulesVersion}"
+            archTesting:         "androidx.arch.core:core-testing:${roomVersion}"
     ]
 
     remoteDependencies = [
@@ -109,9 +105,7 @@ ext {
             junit:               "junit:junit:${jUnitVersion}",
             kotlinJUnit:         "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
             assertj:             "org.assertj:assertj-core:${assertJVersion}",
-            mockito:             "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-            supportRunner:       "com.android.support.test:runner:${androidSupportRunnerVersion}",
-            supportRules:        "com.android.support.test:rules:${androidSupportRulesVersion}"
+            mockito:             "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}"
     ]
 
     mobileUiDependencies = [
@@ -153,8 +147,6 @@ ext {
             kotlinJUnit:         "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
             assertj:             "org.assertj:assertj-core:${assertJVersion}",
             mockito:             "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-            supportRunner:       "com.android.support.test:runner:${androidSupportRunnerVersion}",
-            supportRules:        "com.android.support.test:rules:${androidSupportRulesVersion}",
             mockitoAndroid:      "org.mockito:mockito-android:${mockitoAndroidVersion}",
             archTesting:         "androidx.arch.core:core-testing:${roomVersion}",
             espressoCore:        "androidx.test.espresso:espresso-core:${espressoVersion}",
