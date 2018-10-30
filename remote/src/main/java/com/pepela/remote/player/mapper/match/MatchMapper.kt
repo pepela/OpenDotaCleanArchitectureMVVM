@@ -5,7 +5,7 @@ import com.pepela.remote.EntityMapper
 import com.pepela.remote.player.model.match.MatchModel
 import java.util.*
 
-class MatchMapper(private val sideMapper: SideMapper) : EntityMapper<MatchModel, Match> {
+open class MatchMapper(private val sideMapper: SideMapper) : EntityMapper<MatchModel, Match> {
 
     override fun from(model: MatchModel): Match =
             with(model) {
