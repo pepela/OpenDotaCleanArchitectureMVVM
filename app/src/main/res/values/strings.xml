@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Open dota</string>
+    <string name="app_name" translatable="false">Open dota</string>
 
     <string name="error_msg_loading_data">Error loading data</string>
     <string name="error_action_retry">Retry</string>
